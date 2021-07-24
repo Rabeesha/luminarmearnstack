@@ -1,0 +1,17 @@
+h1{
+    color:blue;
+    text-align:center;
+    text-decoration:underline;
+}
+#ids{
+    color:#9dc33a;
+}
+.cls{
+color:rgb(100,75,85)
+}
+body{
+    background-color: black;
+}
+h2{
+    color:hsl(260,30%,40% )
+}

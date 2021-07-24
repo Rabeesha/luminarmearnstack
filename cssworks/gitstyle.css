@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+h1{
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    color: #23282e;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+.up{
+    font-size: 14px;
+    font-weight: 300;
+    color: #23282e;
+    font-family: 'Open Sans', sans-serif;   
+    line-height: 40px;
+    padding-left: 15px;
+    /* padding-top: 15px; */
+    margin-bottom: 25px;
+}
+
+.set{
+    border:1px solid var(--color-border-secondary);
+    background-color: #f6f7f7;
+    border-radius: 6px;
+    width: 340px;
+    position: absolute;
+    left:34%;
+    height: 216px;
+    /* margin-right: 50px;
+    margin-bottom: 50px; */
+}
+.name1{
+    border-radius: 5px;
+    display: block;
+width: 84%;
+padding: 5px 12px;
+margin-left: 15px;
+border: 1px solid white;
+}
+.sp{
+    padding-left: 15px;
+}
+.btn{
+background-color: #2ea951;
+padding:5px 16px;
+width: 93%;
+border-radius: 5px;
+margin-left:11px ;
+margin-bottom: 40px;
+color: white;
+border: 1px solid #2ea951;
+
+
+
+}
+.algn{
+    margin-left: 108px;
+    font-family: 'Open Sans', sans-serif;  
+    font-size: 12px;
+}
+.last{
+    border: 1px solid black;
+    left:37%;
+    width:84% ;
+}
+.icon{
+    left:37%;
+    margin-left: 48%;
+   
+    margin-top: 10%;
+}
+p{
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 14px;
+    
+}
+
+.ps{
+    border: 1px solid #d0d2d5;
+border-radius: 6px;
+padding: 15px 20px;
+text-align: center;
+}
