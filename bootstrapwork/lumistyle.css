@@ -196,6 +196,6 @@ margin-top: 20px;
             padding-left:0px !important;
         }
     }
-    ul li a:hover{
+   nav-item a:hover{
         color: blueviolet ;
     }
