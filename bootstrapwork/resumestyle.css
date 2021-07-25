@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #d4d2d2;
+}
+.bg{
+    background-color: #E6E6E6;
+    height:100px;
+}
+.row img {
+    height: 210;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: -75px;
+}
+.row h6{
+    color: #858383;
+    font-weight: bold;
+    font-size: 14px;
+}
+.row p{
+    color:#0a0a0a;
+    line-height: 23px;
+}
+@media only screen and (max-width: 320px) {
+    .one{
+        border: 0px;
+    }
+}
