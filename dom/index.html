@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="calcscript.js"></script>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+    }
+    h3{
+        text-align: center;
+    }
+
+    #calc {
+        width: 300px;
+        height: 250px;
+        border-color:1px solid #cccccc;
+    }
+
+    .btn {
+        width: 96%;
+        height: 40px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+        border-radius: 4%;
+    }
+
+    .btn1 {
+        background-color: #eeeeee;
+        width: 96%;
+        height: 40px;
+        font-size: 20px;
+        text-align:right;
+        color: black;
+    }
+    .btn2{
+        background-color: #646060;
+    }
+    .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<body>
+    <h3>CALCULATOR</h3>
+    <table class="center" id="calc">
+        
+        <tr>
+            <td colspan="4"><input class="btn  btn1" name="display" id="inpt" type="text"></td>
+        </tr>
+        <tr>
+            <td><input class="btn btn2" type=button onclick="clearBox()" value="C"></td>
+            <td><input class="btn btn2" type=button onclick="removeElement()" value="<<"></td>
+            <td><input class="btn btn2" type=button value="/"onclick="displayValue('/')"></td>
+            <td><input class="btn btn2" type=button value="*" onclick="displayValue('*')"></td>
+        </tr>
+        <tr>
+            <td><input class="btn" type=button value="7" onclick="displayValue('7')"></td>
+            <td><input class="btn" type=button value="8" onclick="displayValue('8')"></td>
+            <td><input class="btn" type=button value="9" onclick="displayValue('9')"></td>
+            <td><input class="btn btn2" type=button value="-" onclick="displayValue('-')"></td>
+        </tr>
+        <tr>
+            <td><input class="btn" type=button value="4" onclick="displayValue('4')"></td>
+            <td><input class="btn" type=button value="5" onclick="displayValue('5')"></td>
+            <td><input class="btn" type=button value="6" onclick="displayValue('6')"></td>
+            <td><input class="btn btn2" type=button value="+" onclick="displayValue('+')"></td>
+        </tr>
+        <tr>
+            <td><input class="btn" type=button value="1" onclick="displayValue('1')"></td>
+            <td><input class="btn" type=button value="2" onclick="displayValue('2')"></td>
+            <td><input class="btn" type=button value="3" onclick="displayValue('3')">
+            </td>
+            <td rowspan="2"><input class="btn btn2" type=button value="=" onclick="evaluateExp()" style="height: 82px!important;"></td>
+        </tr>
+        <tr>
+            <td colspan=2><input class="btn " type=button value="0" onclick="displayValue('0')"></td>
+            <td><input class="btn" type=button value="%" onclick="displayValue('%')"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

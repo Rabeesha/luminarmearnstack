@@ -20,7 +20,7 @@ class BookLibrary{
 
     }
     orderBySold(){
-        Object.entries(this.soldbooks).sort((copy1,copy2)=>copy2[1]-copy1[1]).forEach(data=>console.log(data)) 
+        Object.entries(this.books).sort((book1,book2)=>book1[2]-book2[1]).forEach(data=>console.log(data)) ;
        
 
     }
@@ -33,5 +33,5 @@ class BookLibrary{
 
 }
 var obj=new BookLibrary()
-obj.findBook("neermadhalm")
+// obj.findBook("neermadhalm")
 obj.orderBySold()
