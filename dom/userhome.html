@@ -1,0 +1,262 @@
+
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+     <script src="bankscript.js"></script>
+     <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="bankindex.html"><img  src="images/mybank.png"style="height:90px"class="logo"></a>
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+            
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" onclick="bank.balanceenquiery()">Balance</a>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"onclick="bank.fundtransfer()">
+                  Fund Transfer
+                </button>
+
+
+                <!-- <a class="nav-link" href="#" onclick="bank.fundtransfer()">Fund Transfer</a> -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="bank.logout()"> <span id="user1">Logout</span></a>
+              </li>
+            
+              
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+      <h1 style="text-align: center;color: black;padding-right: 2px;" class="ps-2">welcome<span id="user"></span></h1> 
+      <div class="container large">
+        <div class="row" id="catset">
+           <div class="col-lg-2 col-sm-12 example catagories first ">
+               <img src="images/account.png"style=""class="image1 image">
+              
+                <div class="text overlay">Account</div>
+             
+           </div>
+    <div class="col-lg-2  col-sm-12 catagories second">
+             <img src="images/depo.png"style=""class="image1">
+             <div class="text overlay">Deposit</div>
+           
+           </div>
+           <div class="col-lg-2 col-sm-12 catagories third"> 
+              <img src="images/loan.png"style=""class="image1">
+              <div class="text overlay">Loan</div>
+            </div>
+           <div class="col-lg-2 col-sm-12 catagories fourth">  
+             <img src="images/trans.png"style=""class="image1">
+             <div class="text overlay">Transaction</div>
+            </div> 
+           
+           <div class="col-lg-2 col-sm-12 catagories fourth"> 
+              <img src="images/pay.png"style=""class="image1">
+              <div class="text overlay">Bill Pay</div>
+            </div> 
+           
+        </div>
+      </div>
+      <!---------------------- mobile view-------------------------- -->
+
+
+      <div class="container mobileShow">
+      <div class="row" id="catset">
+        <div class="col-6 catagories third"> 
+          <img src="images/account.png"style=""class="image1">
+          <div class="text overlay">Account</div>
+         
+      </div>
+      <div class="col-6 catagories third"> 
+        <img src="images/depo.png"style=""class="image1">
+        <div class="text overlay">Deposit</div>
+       
+    </div>
+    </div>
+    <div class="row" id="catset">
+      <div class="col-6 catagories third"> 
+        <img src="images/loan.png"style=""class="image1">
+        <div class="text overlay">Loan</div>
+        </div>
+        <div class="col-6 catagories third"> 
+          <img src="images/trans.png"style=""class="image1">
+          <div class="text overlay">Transactions</div>
+    </div>
+    </div>
+    <div class="row" id="catset">
+      <div class="col-6 catagories third"> 
+        <img src="images/pay.png"style=""class="image1">
+        <div class="text overlay">Bill Pay</div>
+        </div>
+      
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Fund Transfer</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="toacno" class="form-control mb-2"placeholder="Accountnumber">
+                <input type="text" id="amt" class="form-control"placeholder="Amount">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"onclick="bank.fundtransfer()">proceed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </body>
+      <script>
+        let logeduser=JSON.parse(sessionStorage.getItem(sessionStorage.key(0)))
+    user.innerHTML=logeduser.person_name
+    
+      
+      </script>
+
+   </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<h1 style="text-align: center;">welcome<span id="user"></span></h1> 
+   <div class="container">
+      <div class="row">
+           <div class="col-3"> </div>
+               <div class="col-6 set">
+                <ul>
+                    <a onclick="bank.balanceenquiery()">balance</a></li>
+                    <li><a data-bs-dismiss="modal" href="#exampleModal">fundtransfer</a></li>
+                  <li > <a  onclick="bank.logout()"> <span id="user">logout</span></li></a>
+                </ul>
+               </div>
+               <div>
+        
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="toacno" class="form-control"placeholder="accountnumber">
+            <input type="text" id="amt" class="form-control"placeholder="amount">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"onclick="bank.fundtransfer()">proceed</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+               </div>
+    
+                   <div class="col-3">
+    
+                   </div>
+              
+      </div>
+       
+   </div>
+</body>
+<script>
+  let logeduser=JSON.parse(sessionStorage.getItem(sessionStorage.key(0)))
+  user.innerHTML=logeduser.person_name
+
+</script> -->

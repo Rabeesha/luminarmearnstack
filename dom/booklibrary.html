@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+</head>
+<style>
+
+    body{
+        background-color: #090979;
+    }
+    
+    .btn-grad {background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%)}
+         .btn-grad {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 5px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+          .text1{
+           margin-top: 15px;
+           margin-bottom: 15px;
+          }
+          .text2{
+          
+           margin-bottom: 15px;
+          }
+
+
+
+          
+         /* .btn-grad2 {background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%)}
+         .btn-grad2 {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .btn-grad2:hover {
+            background-position: right center; /* change the direction of the change here */
+            /* color: #fff;
+            text-decoration: none;
+          }
+          */ 
+          .btn-grad2{
+             background-color: #f58020;
+          }
+          #book_list{
+              border: 1px solid white;
+              text-transform: capitalize;
+              color: white;
+              font-size: 15px;
+              
+
+          }
+          .headings{
+              padding-right: 20px;
+          }
+          #result{
+            margin-top: 20px;
+          }
+          #result td{
+              font-size: 12px;
+              padding-right: 12px;
+              padding-left: 12px;
+          }
+         
+</style>
+
+
+<body>
+    
+</body>
+</html>
+<div class="container">
+    <div class="row">
+        <div class=" col-4">
+        </div>
+        <div class=" col-4">
+           <button onclick="listBooks()"class="btn-grad">
+               click here for books
+           </button>
+           <input type="text" id="find_book" placeholder="enter book name"class="text1">
+           <button  onclick="bookNames()"class="btn-grad2 ">SEARCH</button>
+           <input type="text" id="book_category"placeholder="enter category" class="text2">
+           <button onclick="categoryName()"class="btn-grad2 ">SEARCH</button>
+            <table id="book_list">
+                <tr>
+                    <td class="headings">book_name</td>
+                    <td class="headings">price</td>
+                    <td class="headings">author</td>
+                    <td class="headings">avl_copies</td>
+                    <td class="headings">sold_copies</td>
+                    <td class="headings">category</td>
+                </tr>
+                <tbody id="result" class="">
+            
+                </tbody>
+            </table>
+        </div>
+        <div class=" col-4">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+    books = [
+        { book_name: "randamoozham", price: 470, author: "mt vasudhevan", avl_copies: 100, sold_copies: 100,category:"fiction" },
+        { book_name: "aadujeevitham", price: 500, author: "benyamin", avl_copies: 150, sold_copies: 145,category:"horror" },
+        { book_name: "rainrising", price: 500, author: "nirupama", avl_copies: 200, sold_copies: 140,category:"triller" },
+        { book_name: "halfgirlfriend", price: 550, author: "chethan bagath", avl_copies: 150, sold_copies: 140,category:"drama" },
+    ]
+
+    function listBooks(){
+        let book_data=""
+        for(let book of books){
+            book_data+=`<tr><td>${book.book_name}</td><td>${book.price}</td><td>${book.author}</td><td>${book.avl_copies}</td><td>${book.sold_copies}</td><td>${book.category}</td></tr>`
+        } 
+        result.innerHTML=book_data;
+    }
+    function listBook(data){
+        let book_data=""
+        for(let book of data){
+            book_data+=`<tr><td>${book.book_name}</td><td>${book.price}</td><td>${book.author}</td><td>${book.avl_copies}</td><td>${book.sold_copies}</td><td>${book.category}</td></tr>`
+        } 
+        result.innerHTML=book_data;
+    }
+    function bookNames(){
+      let  findbooks=find_book.value;
+     let  data= books.filter(book=>book.book_name==findbooks)
+     listBook(data)
+    }
+    function categoryName(){
+        let catgname=book_category.value;
+        let catgnames=books.filter(book=>book.category==catgname)
+        listBook(catgnames)
+    }
+</script>
+<!-- 
+list all books
+find by book Name
+search by category -->
+
+

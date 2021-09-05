@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+  <div class="'container">
+      <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-4">
+            <div class="dropdown">
+                 <select class="btn btn-secondary dropdown-toggle"onclick="dropdownvalues()" type="button" id="c_name" data-bs-toggle="dropdown" aria-expanded="false">
+                 select
+                </select>
+                
+              </div>
+               <!-- <input tupe= "text" class="form-control mt-3"id="c_name"> -->
+              <button class="btn-primary mt-3" onclick="getcountryDetails()">fetch data</button>
+        </div>
+        
+            <div class="col-4"></div>
+            
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4" id="data"></div>
+                <div class="col-4"></div>
+            </div>
+      
+      </div>
+
+  </div> 
+
+</body>
+<script>
+     function displayvalue(country_data)
+    {
+//flag
+//contry name
+//population
+//currency name
+//smbl
+let flag=country_data[0].flag;
+console.log(flag);
+let population=country_data[0].population
+console.log(population);
+let currency=country_data[0].currencies[0].name;
+// console.log(currency);
+let currency_symbol=country_data[0].currencies[0].symbol;
+let html_data=`<div class="card" style="width: 18rem;">
+  <img src="${flag}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">country name${country_data[0].name}</h5>
+   
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">population ${population}</li>
+    <li class="list-group-item">currency ${currency}</li>
+    <li class="list-group-item">currency symbol${currency_symbol}</li>
+  </ul>
+  <div class="card-body">
+   
+  </div>
+</div>`
+data.innerHTML=html_data;
+
+    }
+   
+
+    valuesdropdown()
+    function valuesdropdown(){
+        
+            fetch("https://restcountries.eu/rest/v2/all").
+            then(res=>
+            {
+if(res.ok){
+    return res.json()
+}
+else{
+    throw new Error("failed to fectch")
+}
+            }).
+        then(data=>displayvalue(data)).
+        catch(error=>alert(error))
+        }
+    
+    function dropdownvalues(country_data)
+    let html_data=""
+    for(let datas of country_data){
+html_data+=`<option value="${datas.name}">${datas.name}</option>`
+    }
+    c_name.innerHTML=html_data
+</script>
+ 
+
+
+
+</html>

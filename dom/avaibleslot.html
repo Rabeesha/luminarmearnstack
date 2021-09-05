@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<style>
+    .btn{
+      
+    }
+    </style>
+<body>
+   
+    <div class ="container">
+        <div class="row">
+            <div class="col-4">
+                <input type="text"id="vaccin">
+                <button onclick="searchVaccine()">search</button>
+                <input type="text"id="dis">
+                <button onclick="searchDistrict()">search</button>
+
+            </div>
+            <button class="btn" onclick="populateData()">getdata</button>
+            <div class="col-4">
+                <table id="result">
+                    <tr>
+                        <td>Center name</td>
+                        <td>age group</td>
+                        <td>slot</td>
+                        <td>vaccine</td>
+                        <td>District</td>
+                    </tr>
+                    <tbody id="result2">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+<script>
+   var slots=[
+    {center:"phc",group:"18+",time:"9-1",vaccine:"co-vaxin",Dstrict:"thrissur"},
+    {center:"aims",group:"65+",time:"10-12",vaccine:"co-vaxin",Dstrict:"pkd"},
+    {center:"aster",group:"18+",time:"1-3",vaccine:"co-vaxin",Dstrict:"ekm"},
+    {center:"kims",group:"65+",time:"10-2",vaccine:"co-vaxin",Dstrict:"mpm"},
+    {center:"koo",group:"65+",time:"10-12",vaccine:"sputnic",Dstrict:"kozhikod"},
+    {center:"kims",group:"18+",time:"10-2",vaccine:"sputnic",Dstrict:"kotayam"},
+    {center:"koo",group:"65+",time:"10-12",vaccine:"covidshield",Dstrict:"thrissur"},
+    {center:"kims",group:"18+",time:"10-2",vaccine:"covidshield",Dstrict:"thrissur"},
+
+]
+function populateData(){
+    let html_data="";
+    for(let slot of slots){
+        html_data+=`<tr><td>${slot.center}</td><td>${slot.group}</td><td>${slot.time}</td><td>${slot.vaccine}</td><td>${slot.Dstrict}</td></tr>`
+    }
+    result2.innerHTML=html_data;
+}
+function populateDatas(data){
+    let html_data="";
+    for(let slot of data){
+        html_data+=`<tr><td>${slot.center}</td><td>${slot.group}</td><td>${slot.time}</td><td>${slot.vaccine}</td><td>${slot.Dstrict}</td></tr>`
+    }
+    result2.innerHTML=html_data;
+}
+function searchVaccine(){
+    let vaccin_name=vaccin.value;
+   let data= slots.filter(slot=>slot.vaccine==vaccin_name)
+   populateDatas(data)
+        
+    
+}
+
+function searchDistrict(){
+    let district_name=dis.value;
+    let data=slots.filter(district=>district.Dstrict==district_name)
+    populateDatas(data)
+
+
+}
+
+
+</script>
+</html>

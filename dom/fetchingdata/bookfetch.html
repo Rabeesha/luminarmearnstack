@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/d93589abe7.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+
+        /* background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('./book-bg.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%; */
+        background-image: url("./images/bookbg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .card-img-top{
+        height: 210px;
+    
+        width:100%;
+
+    }
+    .display{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            float: left;
+            margin-top: 50px;
+          box-shadow: 5px 7px 3px #282727;
+        }
+        .card{
+            margin-right: 25px;
+            height: 450px;
+        }
+        .card-title{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size:17px;
+            padding-left:15px;
+
+        }
+        .card-body{
+            padding: 0px;
+        }
+        .list-group-item{
+            border: none;
+            font-size: 14px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    .cardset{
+        margin-top: 0px;
+margin-left: 77px;
+    }
+    .serachtext{
+        margin-top: 74px;
+    }
+    .btn{
+        background-color: #246d28;
+        color: white;
+    }
+    .head{
+        font-size: 50px;
+        color: white;
+        
+    }
+    .top{
+        text-align: center;
+        background-color: black;
+opacity: 0.6;
+    }
+    .faz{
+        padding-left: 10px;
+padding-right: 10px;
+    }
+    @media only screen and (max-width: 320px) {
+        .cardset{
+            margin-left: 17px;
+        }
+        .serachtext{
+            margin-left: 15px;
+        }
+        .head{
+            font-size: 37px;
+        }
+    }
+   
+</style>
+
+<body>
+    <div class="row top">
+       
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 ">
+                <span class="head">Google</span> <i class="fas fa-3x fa-book-reader text-white faz"></i><span class="head">Books</span>
+            </div>
+            <div class="col-lg-3"></div>
+        
+    </div>
+
+    <div class="'container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+
+            </div>
+            <div class="col-lg-4 col-sm-12 serachtext">
+                <input type="text" placeholder="enter book name" name="" id="b_name"class="">
+               
+                  
+                 
+                <button onclick="getbookDetails()"class="btn">search</button>
+            </div>
+           
+          
+            </div>
+            <div class="col-lg-4 col-sm-12">
+
+            </div>
+
+
+        </div>
+        <di class="container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-lg-12 col-sm-12 mb-8 cardset" id="displaybook">
+          </div>
+                <div class="col-3"></div>
+            </div>
+        </di>
+    </div>
+
+
+
+</body>
+<script>
+
+
+
+
+    function displayBooks(data) {
+        // console.log(data);
+        // console.log(data.items);
+
+
+        let html_data = "";
+        for (let book of data.items) {
+            console.log(book);
+           
+          
+                let img_url = book.volumeInfo.imageLinks.thumbnail;
+
+                html_data +=`
+                <div class="card col-lg-4 col-sm-12 card-body display   " style="width: 18rem;">
+                    
+  <img src="${img_url}" class="card-img-top" alt="...">
+  
+    <h5 class="card-title">${book.volumeInfo.title}</h5>
+  
+  
+  <ul class="list-group list-group-flush">`
+    html_data+= `<li class="list-group-item">Authors : ${book.volumeInfo.authors}</li>`
+    if (book.volumeInfo.subtitle != undefined) {
+    html_data+= ` <li class="list-group-item">Sub titile : ${book.volumeInfo.subtitle}</li>`
+    }
+    if (book.volumeInfo.publisher != undefined) {
+ html_data+=  ` <li class="list-group-item">Publisher : ${book.volumeInfo.publisher}</li>`
+    }
+    if (book.volumeInfo.publishedDate != undefined) {
+        html_data+= `<li class="list-group-item">Publish Date : ${book.volumeInfo.publishedDate}`
+    }
+  html_data += `   
+                                    </ul>
+                                </div>
+                            </div>`
+
+                
+
+
+
+
+
+            
+
+        }
+        displaybook.innerHTML = html_data;
+    }
+   
+
+
+    function getbookDetails() {
+        let book_name = b_name.value;
+
+        let url = `https://www.googleapis.com/books/v1/volumes?q=${book_name}`
+        fetch(url).then(book_data => book_data.json()).then(data => {
+
+            displayBooks(data)
+            console.log(data);
+
+        })
+    }
+
+
+
+</script>
+
+
+</html>

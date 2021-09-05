@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<style>
+  body{
+    background-image:url("../images/country.jpg");
+   background-size:cover
+  }
+</style>
+<body>
+  <div class="'container">
+      <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-4">
+            <div class="dropdown">
+                <!-- <button class="btn btn-secondary dropdown-toggle"onclick="getcountryDetails()" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                 select
+                </button> -->
+                <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li><a class="dropdown-item" href="#"></a></li>
+                </ul> -->
+                
+              </div>
+               <input tupe= "text" class="form-control mt-3" id="c_name">
+              <button class="btn-primary mt-3" onclick="getcountryDetails()">fetch data</button>
+        </div>
+        <div class="col-4">
+              <div class="row">
+                  <div class="col-4"></div>
+                  <div class="col-4"></div>
+                  <div class="col-4"></div>
+              </div>
+            </div>
+            <div class="col-4"></div>
+      
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" id="datas"></div>
+                    <div class="col-4"></div>
+                </div>
+          
+      </div>
+
+  </div> 
+
+</body>
+<script>
+ 
+
+
+
+
+    function displayvalue(data)
+    {
+//flag
+//contry name
+//population
+//currency name
+//smbl
+let flag=data[0].flag;
+console.log(flag);
+let population=data[0].population
+console.log(population);
+let currency=data[0].currencies[0].name;
+// console.log(currency);
+let currency_symbol=data[0].currencies[0].symbol;
+let html_data=`<div class="card" style="width: 18rem;">
+  <img src="${flag}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">country name${data[0].name}</h5>
+   
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">population ${population}</li>
+    <li class="list-group-item">currency ${currency}</li>
+    <li class="list-group-item">currency symbol${currency_symbol}</li>
+  </ul>
+  <div class="card-body">
+   
+  </div>
+</div>`
+datas.innerHTML=html_data;
+
+    }
+   
+
+        // 
+        // let url=`https://restcountries.eu/rest/v2/name/${country_name}?fullText=true`
+        // let request=new XMLHttpRequest()
+        // request.open("get",url)
+        // request.send()
+        // request.onreadystatechange=()=>{
+        //     if(request.readyState==4){
+        //         if(request.status>199 & request.status<300){
+        //             let country_data=JSON.parse(request.responseText)
+        //             // console.log(country_data);
+        //              displayvalue(country_data);
+        let country_name=c_name.value;
+        function getcountryDetails(){
+        // fetch("https://restcountries.eu/rest/v2/name/${country_name}?fullText=true").then(country=>country_data.json()).then
+        //        (data=>displayvalue(country_data))    
+
+        let url=`https://restcountries.eu/rest/v2/name/${country_name}?fullText=true`
+        fetch(url).then(country_data=>country_data.json()).then(data=>{
+          displayvalue(data)
+        })
+                }
+            
+        
+  
+</script>
+</html>
+
+
+            }
+
+
+            <div class="container" id="countryset">
+                <div clas="row">
+                  
+                     
+                       <div class="col-lg-12 col-sm-12 split left">
+                        <img src="${flag}" class="flagimg">
+                            <h5  class="cname">${ data[0].name}</h5>
+                           
+                            <ul class="ulset">
+                             
+                               <li><span class="highlite">Population :</span> ${population}</li> 
+                               <li><span class="highlite">currency :</span> ${currency}</li> 
+                               <li><span class="highlite">Currency Symbol  :</span>${currency_symbol}</li> 
+                               
+                        
+                        
+                            </ul>
+                       </div>
+                       
+                    
+                </div>
+                      </div>
